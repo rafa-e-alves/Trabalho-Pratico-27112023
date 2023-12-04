@@ -100,17 +100,31 @@ public class Loja {
         int opcaoPagamento = entry.nextInt();
         entry.nextLine();
 
-        if (opcaoPagamento == 1) {
-            double desconto = totalCompra * 0.10;
-            double totalComDesconto = totalCompra - desconto;
-            System.out.println("Total com desconto: R$ " + totalComDesconto);
-            System.out.println("Pagamento à vista realizado com sucesso!");
-        } else if (opcaoPagamento == 2) {
-            System.out.println("Pagamento parcelado em até 5 vezes sem juros realizado com sucesso!");
-        } else {
-            System.out.println("Opção de pagamento inválida.");
-        }
+        switch (opcaoPagamento) {
+            case 1:
+                double desconto = totalCompra * 0.10;
+                double totalComDesconto = totalCompra - desconto;
+                System.out.println("Total com desconto: R$ " + totalComDesconto);
+                System.out.println("Pagamento à vista realizado com sucesso!");
+                break;
+            case 2:
+                int numParcelas;
 
+                do {
+                    System.out.print("Informe o número de vezes que deseja dividir a compra (máximo 5 sem juros): ");
+                    numParcelas = entry.nextInt();
+
+                    if (numParcelas > 0 && numParcelas <= 5) {
+                        double valorParcela = totalCompra / numParcelas;
+                        System.out.println("Pagamento parcelado em " + numParcelas + " vezes de R$ " + valorParcela + " realizado com sucesso!");
+                    } else {
+                        System.out.println("Número de parcelas inválido. Escolha entre 1 e 5 parcelas.");
+                    }
+                } while (numParcelas <= 0 || numParcelas > 5);
+                break;
+            default:
+                System.out.println("Método de pagamento inválido.");
+        }
         carrinhoDeCompra = new CarrinhoDeCompra();
     }
 
