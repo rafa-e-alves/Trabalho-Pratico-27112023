@@ -1,6 +1,2 @@
 # Trabalho Prático Dia 27/11/2023
-
-Aluno: Rafael Evangelista Alves
-Curso: Análise e Desenvolvimento de Sistemas
-Disciplina: Programação de Soluções Computacionais
-Professor: Fabrício Valadares
+Trabalho Prático do dia 27/11/2023 - Programação de Soluções Computacionais - Rafael Evangelista Alves
